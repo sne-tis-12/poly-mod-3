@@ -4,14 +4,36 @@ pragma circom 2.0.0;
 
 template CustomCircuit () {  
    // signal inputs
+   signal input a;
+   signal input b;
    
    // signals from gates
+   signal x;
+   signal y;
 
    // final signal output
+    signal output q;
 
    // component gates used to crrate custom circuit 
+    component andGate = AND();
+    component orGate = OR();
+    component notGate = NOT();
+
 
    // circuit logic
+   andGate.a <== a;
+   andGate.b <== b;
+
+   x <== andGate.out;
+
+   notGate.in <== b;
+   y <== notGate.out;
+
+   orGate.a <== x;
+   orGate.b <== y;
+
+   q <== orGate.out;
+
 }
 
 
