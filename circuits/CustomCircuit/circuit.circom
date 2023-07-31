@@ -14,7 +14,7 @@ template CustomCircuit () {
    // final signal output
     signal output q;
 
-   // component gates used to crrate custom circuit 
+   // component gates used to create custom circuit 
     component andGate = AND();
     component orGate = OR();
     component notGate = NOT();
